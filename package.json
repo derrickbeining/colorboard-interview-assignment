@@ -1,0 +1,11 @@
+{
+  "name": "colorboard-game",
+  "version": "0.0.1",
+  "description": "technical interview assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV='test' mocha ./**/*.spec.js -w --require babel-register"
+  },
+  "author": "Derrick Beining",
+  "license": "ISC"
+}
