@@ -4,6 +4,7 @@
   "description": "technical interview assignment",
   "main": "index.js",
   "scripts": {
+    "start": "node ./src/index",
     "test": "NODE_ENV='test' mocha ./**/*.spec.js -w --require babel-register"
   },
   "author": "Derrick Beining",
