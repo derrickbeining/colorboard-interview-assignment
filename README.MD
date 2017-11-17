@@ -10,25 +10,24 @@ color on the card or forward to the second matching square if the card contains 
 colored squares, or forward to the last square on the board if there is no square
 matching the description above. A player wins if his piece lands on the last square of
 the board. It is possible for all the cards to be drawn and still not have a winner.
-This problem represents colors with capital letters from A-Z. Below is a diagram of a
-sample board.
+This problem represents colors with capital letters from A-Z.
 
-['R', 'Y', 'G', 'P', 'B', 'R', 'Y', 'G', 'B', 'R', 'P', 'O', 'P']
- ^ Start                                                      ^ Finish
+### Sample Board:
+
+start ['R', 'Y', 'G', 'P', 'B', 'R', 'Y', 'G', 'B', 'R', 'P', 'O', 'P'] finish
 
 Consider the deck of cards: R, B, GG, Y, P, B, P, RR
 
 For 3 players, the game proceeds as follows:
 
-Player 1 draws R, moves to 1st square
-Player 2 draws B, moves to 5th square
-Player 3 draws GG, moves to 8th square
-Player 1 draws Y, moves to 2nd square
-Player 2 draws P, moves to 11th square
-Player 3 draws B, moves to 9th square
-Player 1 draws P, moves to 4th square
-Player 2 draws RR, Wins! (no R in front of piece so it goes to last
-square)
+Player 1 draws R, moves to 1st square  
+Player 2 draws B, moves to 5th square  
+Player 3 draws GG, moves to 8th square  
+Player 1 draws Y, moves to 2nd square  
+Player 2 draws P, moves to 11th square  
+Player 3 draws B, moves to 9th square  
+Player 1 draws P, moves to 4th square  
+Player 2 draws RR, Wins! (no R in front of piece so it goes to last square)
 
 Using the same board and the same deck of cards, but with 2 players, Player 1 wins
 after 7 cards. With 4 players, no one wins after exhausting the deck of 8 cards.
