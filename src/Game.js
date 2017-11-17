@@ -1,5 +1,6 @@
 const Deck = require('./Deck');
 const Board = require('./Board');
+const Player = require('./Player');
 
 module.exports = class Game {
   constructor(players = [], deck = new Deck(), board = new Board()) {
@@ -11,6 +12,14 @@ module.exports = class Game {
     this.players.forEach((player, idx) => {
       player.setNumber(idx + 1).joinGame(this);
     });
+  }
+
+  static create(gameData) {
+    const players = [];
+    const deck = new Deck(gameData.cards);
+    const board = new Board(gameData.squares);
+    while (players.length < gameData.numPlayers) players.push(new Player);
+    return new Game(players, deck, board)
   }
 
   setResult(playerNum, numCardsDrawn) {

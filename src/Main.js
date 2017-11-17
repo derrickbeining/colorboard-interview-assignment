@@ -1,26 +1,13 @@
 const fs = require('fs');
-const Deck = require('./Deck');
-const Board = require('./Board');
-const Player = require('./Player');
 const Game = require('./Game');
-
 const stdout = process.stdout;
 
-module.exports = class ColorBoard {
+module.exports = class Main {
   constructor() {
     this.games = [];
   }
 
-  static readInputsFrom(filepath = process.argv.slice(2)[0]) {
-    return new Promise((fulfillWith, rejectWith) => {
-      fs.readFile(filepath, 'utf8', (err, data) => {
-        if (err) rejectWith(err);
-        else fulfillWith(data);
-      });
-    });
-  }
-
-  static parseInputsToGameData(inputText) {
+  static parseGameInputs(inputText) {
     const allArgs = inputText.split(/\s/g);
     const games = [];
     while (allArgs.length) {
@@ -35,18 +22,19 @@ module.exports = class ColorBoard {
     return games;
   }
 
-  static createGameFromData(data) {
-    const players = [];
-    const deck = new Deck(data.cards);
-    const board = new Board(data.squares);
-    while (players.length < data.numPlayers) players.push(new Player);
-    return new Game(players, deck, board)
+  static readInputsFrom(filepath) {
+    return new Promise((fulfillWith, rejectWith) => {
+      fs.readFile(filepath, 'utf8', (err, data) => {
+        if (err) rejectWith(err);
+        else fulfillWith(data);
+      });
+    });
   }
 
   loadGamesFromFile(pathToFile) {
-    return ColorBoard.readInputsFrom(pathToFile)
-      .then(ColorBoard.parseInputsToGameData)
-      .then(data => { this.games = data.map(ColorBoard.createGameFromData) })
+    return Main.readInputsFrom(pathToFile)
+      .then(Main.parseGameInputs)
+      .then(inputs => { this.games = inputs.map(Game.create) })
       .catch(err => console.error(err));
   }
 

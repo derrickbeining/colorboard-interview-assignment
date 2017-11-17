@@ -16,10 +16,10 @@ module.exports = class Player {
   }
 
   takeTurn() {
-    const colors = this.game.deck.draw().split('');
+    const squareColors = this.game.deck.draw().split('');
     let idx = 0;
     let start = this.position ? this.position + 1 : 0;
-    colors.forEach(color => {
+    squareColors.forEach(color => {
       idx = this.game.board.indexOf(color, start);
       start = idx + 1;
     });
@@ -30,8 +30,8 @@ module.exports = class Player {
   }
 
   moveToPosition(num) {
-    if (num > -1) this.position = num;
-    else this.position = this.game.board.length - 1;
+    if (num === -1) this.position = this.game.board.length - 1;
+    else this.position = num;
     return this;
   }
 }

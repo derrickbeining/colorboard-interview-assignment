@@ -1,11 +1,12 @@
 const pathToInputFile = process.argv.slice(2)[0] || './colorboard.in';
-const ColorBoard = require('./ColorBoard');
+const pathToOutputFile = './colorboard.out';
+const Main = require('./Main');
 
-const program = new ColorBoard;
+const program = new Main;
 program.loadGamesFromFile(pathToInputFile)
   .then(() => {
     program.runGames()
     .printResults()
-    .writeResultsTo('./colorboard.out');
+    .writeResultsTo(pathToOutputFile);
   })
   .catch(err => console.error(err));
