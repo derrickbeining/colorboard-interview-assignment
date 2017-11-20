@@ -45,8 +45,8 @@ module.exports = class Main {
 
   getResults() {
     const results = [];
-    this.games.forEach(game => { results.push(`${game.result}\n`) });
-    return results.join('');
+    this.games.forEach(game => { results.push(game.result) });
+    return results.join('\n');
   }
 
   printResults() {
@@ -57,7 +57,7 @@ module.exports = class Main {
   writeResultsTo(filepath) {
     fs.writeFile(filepath, this.getResults(), (err) => {
       if (err) throw err;
-      console.log(filepath, 'was successfully written to disk');
+      console.log('\n', filepath, 'was successfully written to disk');
     });
   }
 }
