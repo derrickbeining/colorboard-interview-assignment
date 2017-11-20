@@ -15,7 +15,7 @@ const parseToGameData = gameInputText => {
   const allArgs = gameInputText.split(/\s/g);
   const games = [];
   while (allArgs.length) {
-    let game = {};
+    const game = {};
     game.numPlayers = allArgs.shift();
     game.numSquares = allArgs.shift();
     game.numCards = allArgs.shift();
