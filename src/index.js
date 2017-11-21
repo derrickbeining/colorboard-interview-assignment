@@ -1,4 +1,4 @@
-const pathToInputFile = process.argv.slice(2)[0] || './colorboard.in';
+const pathToInputFile = process.argv[2] || './colorboard.in';
 const pathToOutputFile = './colorboard.out';
 const Main = require('./Main');
 
