@@ -15,7 +15,7 @@ module.exports = class Main {
       game.numPlayers = allArgs.shift();
       game.numSquares = allArgs.shift();
       game.numCards = allArgs.shift();
-      game.squares = allArgs.shift().split('');
+      game.squares = allArgs.shift();
       game.cards = allArgs.splice(0, game.numCards);
       if (game.numPlayers > 0) games.push(game);
     }
